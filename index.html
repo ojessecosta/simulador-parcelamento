@@ -1,0 +1,355 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <style>
+        *{
+        margin: 0;
+        padding: 0; 
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 1%;
+            float: auto;
+            align-content: center;
+            background-color: transparent;
+        }
+        .simulator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h3 {
+            display: inline;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: .8rem;
+            letter-spacing: -0.5;
+            margin: 0;
+            padding: 0;
+            color: transparent;
+            background-image: linear-gradient(45deg, blueviolet, rgb(249, 123, 249));
+            -webkit-background-clip: text;
+        }
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7rem;
+            line-height: .9rem;
+            margin-top: 3%;
+        }
+        .money {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .8rem;
+            border: 1px solid rgb(194, 128, 255);
+            background-color: transparent;
+            border-radius: 5px;
+            padding: 1%;
+            margin-top: 2%;
+            display: inline;
+            width: 36%;
+        }
+        .money:hover{
+            border: 1px solid blueviolet ;
+        }
+        .money:focus{
+            border: 1px solid blueviolet;
+        }
+        .dados {
+            padding: 5%;
+        }
+        .card {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .8rem;
+            padding: 5%;
+            background-image: linear-gradient(-45deg, rgb(216, 205, 255), transparent, transparent, rgb(216, 205, 255));
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgb(216, 205, 255);
+        }
+        table {
+            text-align: left;
+            font-size: .7rem;
+            line-height: .8rem;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td, th {
+        text-align: left;
+        padding: 2px;
+        }
+        tr:nth-child(even) {
+        color: white;
+        background-color: blueviolet;
+        }
+
+    </style>
+
+    <body>
+
+        <div class="simulator">
+            
+            <div>
+            <br>
+            <div class="dados">
+            <h3>Simule o parcelamento de sua compra,<br>
+                com ou sem entrada em até 18x nos cartões</h3>
+            <p>*valores válidos apenas para as compras em nosso espaço físico.</p>
+            <h3>R$</h3>
+
+            <!-- Entrada de valores -->
+
+            <input onfocus="this.value=''" id="valor" min="0" value="0" step=".01" class="money" type="number" onkeypress="return onlyNumberKey (event)" placeholder="0.00">
+            <h3> - Valor do produto</h3>
+
+            <br>
+
+            <h3>R$</h3>
+            <input onfocus="this.value=''" id="entrada" min="0" value="0" step=".01" class="money" type="number" onkeypress="return onlyNumberKey (event)" placeholder="0.00">
+            <h3> - Valor de entrada</h3>
+
+            <p>R$ <span id="pix"></span> à vista em dinheiro,<br>transferências/TED ou Pix.</p>
+            <p>R$ <span id="debito"></span> no débito.</p>
+            </div>
+            
+            <!-- Opções de pagamento e simulação de parcelamento -->
+
+            <div class="card">
+            <table>
+            <tr>
+                <th>Parcelas</th>
+                <th>Valor total</th>
+            </tr>
+            <tr>
+                <td>1x de R$ <span id="one"></span></td>
+                <td>R$ <span id="onefull"></span></td>
+            </tr>
+            <tr>
+                <td>2x de R$ <span id="two"></span></td>
+                <td>R$ <span id="twofull"></span></td>
+            </tr>
+            <tr>
+                <td>3x de R$ <span id="three"></span></td>
+                <td>R$ <span id="threefull"></span></td>
+            </tr>
+            <tr>
+                <td>4x de R$ <span id="four"></span></td>
+                <td>R$ <span id="fourfull"></span></td>
+            </tr>
+            <tr>
+                <td>5x de R$ <span id="five"></span></td>
+                <td>R$ <span id="fivefull"></span></td>
+            </tr>
+            <tr>
+                <td>6x de R$ <span id="six"></span></td>
+                <td>R$ <span id="sixfull"></span></td>
+            </tr>
+            <tr>
+                <td>7x de R$ <span id="seven"></span></td>
+                <td>R$ <span id="sevenfull"></span></td>
+            </tr>
+            <tr>
+                <td>8x de R$ <span id="eight"></span></td>
+                <td>R$ <span id="eightfull"></span></td>
+            </tr>
+            <tr>
+                <td>9x de R$ <span id="nine"></span></td>
+                <td>R$ <span id="ninefull"></span></td>
+            </tr>
+            <tr>
+                <td>10x de R$ <span id="ten"></span></td>
+                <td>R$ <span id="tenfull"></span></td>
+            </tr>
+            <tr>
+                <td>11x de R$ <span id="eleven"></span></td>
+                <td>R$ <span id="elevenfull"></span></td>
+            </tr>
+            <tr>
+                <td>12x de R$ <span id="twelve"></span></td>
+                <td>R$ <span id="twelvefull"></span></td>
+            </tr>
+            <tr>
+                <td>13x de R$ <span id="thirteen"></span></td>
+                <td>R$ <span id="thirteenfull"></span></td>
+            </tr>
+            <tr>
+                <td>14x de R$ <span id="fourteen"></span></td>
+                <td>R$ <span id="fourteenfull"></span></td>
+            </tr>
+            <tr>
+                <td>15x de R$ <span id="fifteen"></span></td>
+                <td>R$ <span id="fifteenfull"></span></td>
+            </tr>
+            <tr>
+                <td>16x de R$ <span id="sixteen"></span></td>
+                <td>R$ <span id="sixteenfull"></span></td>
+            </tr>
+            <tr>
+                <td>17x de R$ <span id="seventeen"></span></td>
+                <td>R$ <span id="seventeenfull"></span></td>
+            </tr>
+            <tr>
+                <td>18x de R$ <span id="eighteen"></span></td>
+                <td>R$ <span id="eighteenfull"></span></td>
+            </tr>
+        </table>
+            </div>
+            </div>
+        </div>
+
+
+        <script>
+
+
+            /* Seleção dos dados */
+
+            function onlyNumberKey(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode < 48 || charCode > 57) {
+            return false;
+            }
+            return true;
+            }
+
+
+            var valor = document.querySelector('#valor');
+            var entrada = document.querySelector('#entrada');
+            var pix = document.querySelector('#pix');
+            var debito = document.querySelector('#debito');
+            var one = document.querySelector('#one');
+            var onefull = document.querySelector('#onefull');
+            var two = document.querySelector('#two');
+            var twofull = document.querySelector('#twofull');
+            var three = document.querySelector('#three');
+            var threefull = document.querySelector('#threefull');
+            var four = document.querySelector('#four');
+            var fourfull = document.querySelector('#fourfull');
+            var five = document.querySelector('#five');
+            var fivefull = document.querySelector('#fivefull');
+            var six = document.querySelector('#six');
+            var sixfull = document.querySelector('#sixfull');
+            var seven = document.querySelector('#seven');
+            var sevenfull = document.querySelector('#sevenfull');
+            var eight = document.querySelector('#eight');
+            var eightfull = document.querySelector('#eightfull');
+            var nine = document.querySelector('#nine');
+            var ninefull = document.querySelector('#ninefull');
+            var ten = document.querySelector('#ten');
+            var tenfull = document.querySelector('#tenfull');
+            var eleven = document.querySelector('#eleven');
+            var elevenfull = document.querySelector('#elevenfull');
+            var twelve = document.querySelector('#twelve');
+            var twelvefull = document.querySelector('#twelvefull');
+            var thirteen = document.querySelector('#thirteen');
+            var thirteenfull = document.querySelector('#thirteenfull');
+            var fourteen = document.querySelector('#fourteen');
+            var fourteenfull = document.querySelector('#fourteenfull');
+            var fifteen = document.querySelector('#fifteen');
+            var fifteenfull = document.querySelector('#fifteenfull');
+            var sixteen = document.querySelector('#sixteen');
+            var sixteenfull = document.querySelector('#sixteenfull');
+            var seventeen = document.querySelector('#seventeen');
+            var seventeenfull = document.querySelector('#seventeenfull');
+            var eighteen = document.querySelector('#eighteen');
+            var eighteenfull = document.querySelector('#eighteenfull');
+            
+
+            /* Formatação dos valores */
+            
+            //.replace(".",",")
+            //.replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+            
+
+            
+
+            /* Simulador, encontra o valor da parcela e depois multiplica pelo número de parcelas para exibir o valor final correto parcelado */
+
+
+            setInterval(function simular() {
+
+            pix.innerHTML = ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)).toFixed(2);
+
+            debito.innerHTML = ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (4.92 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)).toFixed(2);
+            
+            one.innerHTML = ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (4.75 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)).toFixed(2);
+            onefull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (4.75 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 1).toFixed(2) * 1).toFixed(2);
+
+            two.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (5.94 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 2).toFixed(2);
+            twofull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (5.94 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 2).toFixed(2) * 2).toFixed(2);
+
+            three.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (6.8 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 3).toFixed(2);
+            threefull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (6.8 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 3).toFixed(2) * 3).toFixed(2);
+
+            four.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (7.61 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 4).toFixed(2);
+            fourfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (7.61 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 4).toFixed(2) * 4).toFixed(2);
+
+            five.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (8.45 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 5).toFixed(2);
+            fivefull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (8.45 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 5).toFixed(2) * 5).toFixed(2);
+
+            six.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (9.28 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 6).toFixed(2);
+            sixfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (9.28 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 6).toFixed(2) * 6).toFixed(2);
+
+            seven.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (10.51 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 7).toFixed(2);
+            sevenfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (10.51 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 7).toFixed(2) * 7).toFixed(2);
+
+            eight.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (11.39 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 8).toFixed(2);
+            eightfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (11.39 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 8).toFixed(2) * 8).toFixed(2);
+
+            nine.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (12.27 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 9).toFixed(2);
+            ninefull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (12.27 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 9).toFixed(2) * 9).toFixed(2);
+
+            ten.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (13.20 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 10).toFixed(2);
+            tenfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (13.20 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 10).toFixed(2) * 10).toFixed(2);
+
+            eleven.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (14.11 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 11).toFixed(2);
+            elevenfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (14.11 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 11).toFixed(2) * 11).toFixed(2);
+
+            twelve.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (15.05 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 12).toFixed(2);
+            twelvefull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (15.05 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 12).toFixed(2) * 12).toFixed(2);
+                                     
+            thirteen.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (16.01 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 13).toFixed(2);
+            thirteenfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (16.01 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 13).toFixed(2) * 13).toFixed(2);
+
+            fourteen.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (16.97 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 14).toFixed(2);
+            fourteenfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (16.97 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 14).toFixed(2) * 14).toFixed(2);
+                                                                  
+            fifteen.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (17.97 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 15).toFixed(2);
+            fifteenfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (17.97 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 15).toFixed(2) * 15).toFixed(2);
+            
+            sixteen.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (18.97 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 16).toFixed(2);
+            sixteenfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (18.97 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 16).toFixed(2) * 16).toFixed(2);
+                                      
+            seventeen.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (19.99 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 17).toFixed(2);
+            seventeenfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (19.99 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 17).toFixed(2) * 17).toFixed(2);
+                                        
+            eighteen.innerHTML = (((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (21.50 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 18).toFixed(2);
+            eighteenfull.innerHTML = ((((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0) + (21.50 * ((parseFloat(valor.value) || 0) - (parseFloat(entrada.value) || 0)) / 100)) / 18).toFixed(2) * 18).toFixed(2);
+
+
+            /* Padrão monetário brasileiro */
+
+            document.querySelectorAll('.simulator span').forEach(function (campo) {
+            const numero = Number(campo.textContent);
+
+            campo.textContent = (
+            Number.isFinite(numero) ? numero : 0
+         ).toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+           });
+        });
+
+
+            }, 100);
+
+
+
+            
+
+
+        </script>
+
+    </body>
+</html>
